@@ -11,7 +11,9 @@ Dotfiles using stow
 Safely test this configuration in docker
 
 ```bash
-docker run -e TERM -e COLORTERM -e LC_ALL=C.UTF-8 -w /root -it --rm alpine sh -uec '
+docker run -e TERM -e COLORTERM -e LC_ALL=C.UTF-8 \
+   --volume $HOME/WORK:/WORK \ 
+   -w /root -it --rm alpine sh -uec '
   apk add curl sudo bash zsh git stow 
   apk add tmux neovim fzf bat eza 
   apk add nerd-fonts starship
