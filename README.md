@@ -36,3 +36,11 @@ stow <name program> -d <stow directory>
 stow tmux -d .dotfiles-stow
 stow nvim -d .dotfiles-stow
 ```
+
+
+## Resources
+
+- [Travis media - manage dotfiles with gnu dotfiles-stow](https://travis.media/blog/manage-dotfiles-with-gnu-stow/)
+- [Stow](https://www.youtube.com/watch?v=NoFiYOqnC4o)
+
+
