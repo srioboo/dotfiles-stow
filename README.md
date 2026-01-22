@@ -27,6 +27,18 @@ docker run -e TERM -e COLORTERM -e LC_ALL=C.UTF-8 \
 
 ## HOW TO STOW
 
+Create the directory for the app in the dotfile
+
+```shell
+mkdir nvim/.config/nvim
+```
+
+After that move de configuration to this directory
+
+```shell
+mv ~/.config/nvim ~/.dotfiles-stow/nvim/.config
+```
+
 To apply configurations use
 
 ```shell
@@ -42,5 +54,4 @@ stow nvim -d .dotfiles-stow
 
 - [Travis media - manage dotfiles with gnu dotfiles-stow](https://travis.media/blog/manage-dotfiles-with-gnu-stow/)
 - [Stow](https://www.youtube.com/watch?v=NoFiYOqnC4o)
-
 
