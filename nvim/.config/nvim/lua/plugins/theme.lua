@@ -1,0 +1,1 @@
+/home/salrio/.config/omarchy/current/theme/neovim.lua
