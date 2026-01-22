@@ -4,15 +4,13 @@ set -e
 # -------------------------------------------------
 # CONFIGURATION
 # -------------------------------------------------
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles-stow"
 
 # These match your dotfiles modules
 MODULES=(
     zsh
-    hypr
     ghostty
-    vscode
-    zed
+    nvim
 )
 
 # Arch packages needed for your setup
@@ -174,11 +172,11 @@ stow_modules() {
 # -------------------------------------------------
 echo "🚀 Bootstrapping your Omarchy + Zsh + Dotfiles environment…"
 
-install_packages
-install_aur_packages
-install_ohmyzsh
-install_omz_plugins
-setup_omarchy_zsh
+#install_packages
+#install_aur_packages
+#install_ohmyzsh
+#install_omz_plugins
+#setup_omarchy_zsh
 stow_modules
 
 echo ""
