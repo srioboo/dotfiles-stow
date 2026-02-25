@@ -11,6 +11,7 @@ MODULES=(
     zsh
     ghostty
     nvim
+    zed
 )
 
 # Arch packages needed for your setup
