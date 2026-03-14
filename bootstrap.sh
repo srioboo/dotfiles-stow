@@ -12,6 +12,7 @@ MODULES=(
     ghostty
     nvim
     zed
+    tmux
 )
 
 # Arch packages needed for your setup
