@@ -1,6 +1,6 @@
-# ZSH config
+# Resources
 
-## Resources
+## ZSH config
 
 - [Zsh prompts](https://wiki.archlinux.org/title/Zsh#Prompts)
 - [Add git branch info to your zsh prompt](https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/)

@@ -3,6 +3,7 @@
 Instalación de brew documentar @TODO
 
 Instalar:
+
 - [X] vs code, desde la web
 - [X] chrome
 - [X] brave
@@ -14,6 +15,7 @@ Instalar:
 - [X] xcode -> xcode-select --install
 
 Configuración:
+
 - [ ] configurar atajos de mac
 - [ ] gestion de ventanas - rectangle u otro
 - [ ] pasta

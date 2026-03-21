@@ -1,5 +1,4 @@
 
-
 ## Gest ascii character
 
 ```shell
@@ -7,6 +6,7 @@ printf '%d' "'3" # example number 3 to ascii
 ```
 
 iterate list
+
 ```shell
 	while (aux)
 	{

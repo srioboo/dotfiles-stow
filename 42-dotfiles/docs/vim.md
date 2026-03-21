@@ -8,4 +8,3 @@ I'd actually suggest just copying the contents to your ~/.vimrc as it's well com
 :e $VIMRUNTIME/vimrc_example.vim
 :w! ~/.vimrc
 ```
-
