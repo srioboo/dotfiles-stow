@@ -13,6 +13,7 @@ MODULES=(
     nvim
     zed
     tmux
+    bash
 )
 
 # Arch packages needed for your setup
