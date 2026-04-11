@@ -71,7 +71,7 @@ class Stopwatch(HorizontalGroup):
 class StopwatchApp(App):
     """A Textual app to manage stopwatches."""
 
-    CSS_PATH = "stopwatch.tcss"
+    CSS_PATH = "textual-stopwatch.tcss"
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
     def compose(self) -> ComposeResult:
