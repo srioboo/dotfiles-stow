@@ -1,5 +1,6 @@
 [alias]
 	branches = branch -a
+	remotes = remote -v
 	brs = branch -a
 	br = branch
 	co = checkout
