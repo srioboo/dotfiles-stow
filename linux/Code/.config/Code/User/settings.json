@@ -37,5 +37,6 @@
   "window.newWindowProfile": "Default",
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "docker.extension.enableComposeLanguageServer": false
 }
