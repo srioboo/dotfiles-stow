@@ -1,0 +1,38 @@
+{
+    "workbench.startupEditor": "none",
+    "cmake.showOptionsMovedNotification": false,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        80
+    ],
+    "C_Cpp.vcFormat.indent.accessSpecifiers": true,
+    "C_Cpp.vcFormat.indent.braces": true,
+    "workbench.sideBar.location": "right",
+    "makefile.configureOnOpen": true,
+    "files.associations": {
+        "*.test": "makefile",
+        ".editorconfig": "c"
+    },
+    "terminal.integrated.tabs.enabled": false,
+    "editor.insertSpaces": false,
+    "42header.username": "srioboo-",
+    "42header.email": "srioboo-@student.42malaga.com",
+    "gitlens.graph.minimap.additionalTypes": [
+        "localBranches",
+        "stashes",
+        "remoteBranches"
+    ],
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.lineNumbers": "on",
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "chat.viewSessions.orientation": "stacked",
+}
