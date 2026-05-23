@@ -1,8 +1,8 @@
 # Constants
 # export DOTFILES_42=$HOME/WORK/42/dotfiles-42
-export DOTFILES_42=$HOME/.dotfiles-42
+export DOTFILES_42=$HOME/.dotfiles-stow/42-dotfiles
 export DOTFILES_42_CONFIG=$DOTFILES_42/config
-
+  
 # PATH
 export PATH="$DOTFILES_42/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -70,3 +70,7 @@ source_brew
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 source_sdkman
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
