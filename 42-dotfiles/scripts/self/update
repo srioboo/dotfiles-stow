@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# assign variable
+DOTFILES_PATH="$HOME/.dotfiles"
+
+source "$DOTFILES_PATH/scripts/core/_main.sh"
+source "$DOTFILES_PATH/scripts/self/utils/update.sh"
+
+##? Updates submodules, dotfiles and attempts to do some setup
+#?? 1.0.0
+##?
+##? Usage:
+##?    update
+
+docs::parse "$@"
+
+log::note "Updating dotfiles"
+self_update
+
+if platform::is_macos; then
+  log::note "Applying macOS Symlinks"
+  apply_macos_symlinks
+elif platform::is_linux; then
+  log::note "Applying linux Symlinks"
+  apply_linux_symlinks
+elif platform::is_windows; then
+  log::note "Applying windows Symlinks, NOT IMPLEMENTED"
+  # apply_windows_symlinks
+else
+  log::note "Applying common Symlinks"
+	apply_common_symlinks
+fi
