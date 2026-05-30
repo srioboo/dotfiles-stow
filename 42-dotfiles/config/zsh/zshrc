@@ -1,8 +1,9 @@
 # Constants
 # export DOTFILES_42=$HOME/WORK/42/dotfiles-42
-export DOTFILES_42=$HOME/.dotfiles-stow/42-dotfiles
+export DOTFILES=$HOME/.dotfiles-stow
+export DOTFILES_42=$DOTFILES/42-dotfiles
 export DOTFILES_42_CONFIG=$DOTFILES_42/config
-  
+
 # PATH
 export PATH="$DOTFILES_42/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
