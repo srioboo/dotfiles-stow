@@ -1,5 +1,5 @@
 # Personal email config
-export MAIL="srioboo-@student.42malaga.com"
+# export MAIL="srioboo-@student.42malaga.com"
 
 # C execution funtions
 ccse (){
@@ -16,8 +16,8 @@ cce (){
 
 pw (){
 	ARG=$1
-	./push_swap $ARG | wc -l	
-	./push_swap $ARG | ./checker_linux $ARG	
+	./push_swap $ARG | wc -l
+	./push_swap $ARG | ./checker_linux $ARG
 }
 
 # C execution alias

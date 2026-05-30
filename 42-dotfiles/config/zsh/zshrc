@@ -72,6 +72,5 @@ source_brew
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 source_sdkman
 
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
