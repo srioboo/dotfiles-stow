@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTFILES/scripts/core/_main.sh"
+
+symlinks::apply() {
+	local -r CONFIG="$DOTFILES/symlinks/$1"
+	shift
+
+	echo
+	# "$DOTFILES/modules/dotbot/bin/dotbot" -d "$DOTFILES" -c "$CONFIG" "$@"
+	# dotbot se instala con pip install dotbot
+	dotbot -d "$DOTFILES" -c "$CONFIG" "$@"
+	echo
+}
+
+##? Apply all symlinks
+##?
+##? Usage:
+##?    apply
+##?
+# docs::parse "$@"
+
+# TODO - modificar tras esto no continua -> symlinks::apply "conf.yaml"
+
+if platform::is_macos; then
+	if platform::is_macos_arm; then
+		echo "Apply conf.macos.yaml"
+		symlinks::apply "conf.macos.yaml"
+	else
+		echo "Apply conf.macos-intel.yaml"
+		symlinks::apply "conf.macos-intel.yaml"
+	fi
+else
+	echo "Apply conf.linux.yaml"
+	symlinks::apply "conf.linux.yaml"
+fi
+
+log::success "Done!"

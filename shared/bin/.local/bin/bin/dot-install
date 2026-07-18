@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+# 
+# dot-install: Setup symbolic links for dotfiles
+# This executable script uses libraries from lib/
+#
+# Usage: ./bin/dot-install
+#
+
+set -euo pipefail
+
+# ============================================================================
+# Script Setup
+# ============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+DOTFILES_42="${DOTFILES_42:-$HOME/.dotfiles-42}"
+DOTFILES_CONFIG="${DOTFILES_42}/config"
+
+# Source libraries
+source "${LIB_DIR}/_colors.sh" || {
+	echo "Error: Could not source colors library"
+	exit 1
+}
+
+source "${LIB_DIR}/_validation.sh" || {
+	echo -e "${colors::error} Could not source validation library"
+	exit 1
+}
+
+source "${LIB_DIR}/_fs.sh" || {
+	echo -e "${colors::error} Could not source filesystem library"
+	exit 1
+}
+
+# ============================================================================
+# Validation
+# ============================================================================
+
+# Check if dotfiles directory exists
+if ! validation::is_directory "$DOTFILES_CONFIG"; then
+	echo -e "${colors::error} Dotfiles config not found: ${colors::blue}$DOTFILES_CONFIG${colors::nc}"
+	echo -e "${colors::note} Set DOTFILES_42 environment variable or create the directory"
+	exit 1
+fi
+
+echo -e "${colors::bold}${colors::blue}Setting up dotfiles from: ${colors::green}$DOTFILES_CONFIG${colors::nc}\n"
+
+# ============================================================================
+# Create Symbolic Links - Universal (macOS and Linux)
+# ============================================================================
+
+echo -e "${colors::bold}${colors::blue}▶ Core Configuration${colors::nc}"
+fs::create_symlink "$DOTFILES_CONFIG/zsh/zshrc" "$HOME/.zshrc"
+fs::create_symlink "$DOTFILES_CONFIG/tmux/tmux.conf" "$HOME/.tmux.conf"
+fs::create_symlink "$DOTFILES_CONFIG/vim/vimrc" "$HOME/.vimrc"
+
+# ============================================================================
+# Platform-Specific Configuration
+# ============================================================================
+
+if utils::is_mac; then
+	echo -e "\n${colors::bold}${colors::blue}▶ macOS Configuration${colors::nc}"
+	
+	# VS Code
+	local vscode_dir="$HOME/Library/Application Support/Code/User"
+	fs::ensure_dir "$vscode_dir"
+	fs::create_symlink "$DOTFILES_CONFIG/Code/User/settings.json" "$vscode_dir/settings.json"
+	fs::create_symlink "$DOTFILES_CONFIG/Code/User/keybindings.json" "$vscode_dir/keybindings.json"
+	
+	# Terminal apps
+	fs::ensure_dir "$HOME/.config/kitty"
+	fs::create_symlink "$DOTFILES_CONFIG/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+	
+elif utils::is_linux; then
+	echo -e "\n${colors::bold}${colors::blue}▶ Linux Configuration${colors::nc}"
+	
+	# VS Code
+	fs::ensure_dir "$HOME/.config/Code/User"
+	fs::create_symlink "$DOTFILES_CONFIG/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+	fs::create_symlink "$DOTFILES_CONFIG/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+	
+	# Terminal apps
+	fs::ensure_dir "$HOME/.config/kitty"
+	fs::create_symlink "$DOTFILES_CONFIG/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+	
+	fs::ensure_dir "$HOME/.config/waybar"
+	fs::create_symlink "$DOTFILES_CONFIG/waybar" "$HOME/.config/waybar"
+fi
+
+# ============================================================================
+# Common Configuration (Both Platforms)
+# ============================================================================
+
+echo -e "\n${colors::bold}${colors::blue}▶ Common Applications${colors::nc}"
+
+# Lazygit
+fs::ensure_dir "$HOME/.config/lazygit"
+fs::create_symlink "$DOTFILES_CONFIG/lazygit" "$HOME/.config/lazygit"
+
+# Yazi
+fs::ensure_dir "$HOME/.config/yazi"
+fs::create_symlink "$DOTFILES_CONFIG/yazi" "$HOME/.config/yazi"
+
+# ============================================================================
+# Summary
+# ============================================================================
+
+echo -e "\n${colors::bold}${colors::green}✓ Symbolic links setup complete!${colors::nc}\n"

@@ -1,0 +1,79 @@
+# Constants
+# export DOTFILES_42=$HOME/WORK/42/dotfiles-42
+export DOTFILES=$HOME/.dotfiles-stow
+export DOTFILES_42=$DOTFILES/42-dotfiles
+export DOTFILES_42_CONFIG=$DOTFILES_42/config
+
+# PATH
+export PATH="$DOTFILES_42/scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Set up the prompt
+# autoload -Uz promptinit
+# promptinit
+# prompt adam1
+
+setopt histignorealldups sharehistory
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+# eval "$(dircolors -b)" # this is for show colors in ls command - TODO replace, doesn't work in mac
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# include 42 config, alias and functions
+# source $DOTFILES_42_CONFIG/zsh/42.sh
+
+# add branch info
+autoload -Uz vcs_info
+precmd() {vcs_info}
+
+zstyle ':vcs_info:git:*' formats ' on %b (%a) %m%u%c'
+zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
+
+setopt PROMPT_SUBST
+PROMPT='%F{yellow}%n@%m%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f %F{green}%T%f
+%F{cyan}%%%f '
+
+# PROMPT='%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} %# '
+
+# source tools
+source $DOTFILES_42_CONFIG/zsh/source-tools.sh
+source_bun
+source_nvm
+source_go
+source_brew
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+source_sdkman
+
+# source alias
+source ~/.dotfiles-stow/macos/omarchy/.local/share/shell/aliases
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

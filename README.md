@@ -249,7 +249,7 @@ podman run -e TERM -e COLORTERM -e LC_ALL=C.UTF-8 \
   apk add --no-cache curl sudo bash zsh git stow 
   apk add --no-cache tmux neovim fzf bat eza 
   apk add --no-cache nerd-fonts-all starship
-  apk add --no-cache g++ python3
+  apk add --no-cache g++ python3 nodejs
   
   git clone https://github.com/srioboo/dotfiles-stow.git .dotfiles-stow
   cd .dotfiles-stow
