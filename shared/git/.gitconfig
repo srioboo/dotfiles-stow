@@ -1,0 +1,18 @@
+[alias]
+	branches = branch -a
+	remotes = remote -v
+	brs = branch -a
+	br = branch
+	co = checkout
+	st = status
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	ls = log --oneline --graph
+	slog = log --graph --all --topo-order --pretty='format:%C(green)%h %C(red) %ai %C(reset) %s%C(yellow)%d %C(blue) (%an)'
+	graph = log --graph --color --pretty=format:'%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n'
+	lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
+	lgs = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)> - %ae%Creset' --abbrev-commit
+	alias = config --global --get-regexp --show-scope alias
+	aliases = config --global --get-regexp --show-origin --show-scope alias
+[user]
+	name = Salvador Rioboo Naranjo
+	email = salrio74@gmail.com

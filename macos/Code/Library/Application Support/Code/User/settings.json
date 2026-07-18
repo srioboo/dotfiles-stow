@@ -1,0 +1,42 @@
+{
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "42header.email": "srioboo-@student.42malaga.com",
+  "42header.username": "srioboo-",
+  "C_Cpp.vcFormat.indent.accessSpecifiers": true,
+  "C_Cpp.vcFormat.indent.braces": true,
+  "chat.viewSessions.orientation": "stacked",
+  "cmake.showOptionsMovedNotification": false,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "files.associations": {
+    ".editorconfig": "c",
+    "*.test": "makefile"
+  },
+  "files.autoSave": "afterDelay",
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": false,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches",
+    "stashes",
+    "remoteBranches"
+  ],
+  "makefile.configureOnOpen": true,
+  "terminal.integrated.tabs.enabled": false,
+  "update.mode": "none",
+  "window.newWindowProfile": "Default",
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "chat.mcp.gallery.enabled": true
+}
