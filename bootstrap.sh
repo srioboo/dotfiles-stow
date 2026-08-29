@@ -160,13 +160,15 @@ backup_conflicts() {
 # -------------------------------------------------
 stow_modules() {
     echo "🔗 Stowing dotfile modules…"
-    cd "$DOTFILES_DIR"
+    echo "    has been deprecated!!, use scripts/stow.sh instead"
+    #cd "$DOTFILES_DIR"
 
-    for module in "${MODULES[@]}"; do
-        backup_conflicts "$module"
-        echo "📁 Stowing $module"
-        stow "$module"
-    done
+    #for module in "${MODULES[@]}"; do
+    #    backup_conflicts "$module"
+    #    echo "📁 Stowing $module"
+    #    stow "$module"
+    #done
+
 }
 
 
