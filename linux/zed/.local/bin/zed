@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Arch/Omarchy's zed package ships the binary as `zeditor` (the classic
+# Unix `zed` line editor already owns the name), so the `zed` CLI that
+# macOS provides out of the box doesn't exist on Linux. This wrapper
+# fills that gap.
+exec zeditor "$@"
