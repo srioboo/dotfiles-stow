@@ -3,7 +3,10 @@ set -e
 
 DOTFILES="$HOME/.dotfiles-stow"
 OS=$(uname -s)
-LEVEL=--verbose=0
+# --no-folding avoids whole-directory symlinks (e.g. ~/.local/bin), which
+# break as soon as a second package (shared + linux/macos) needs to place a
+# file in that same directory.
+LEVEL="--verbose=0 --no-folding"
 
 
 # -------------------------------------------------
